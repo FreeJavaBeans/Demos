@@ -23,7 +23,7 @@ public class OopLauncher {
 		
 		//the only way around the above situation is by downcasting the Eater into a living being
 		//this is potentially dangerous because there is no guarantee that e is a living being
-		((LivingBeing)e).name = "Gordon Ramsey"; //(Type)object -> casting compiler, pretend object is of type type 
+		((LivingBeing)e).setName("Gordon Ramsey") ; //(Type)object -> casting compiler, pretend object is of type type 
 		
 		e.eat(curry);
 		

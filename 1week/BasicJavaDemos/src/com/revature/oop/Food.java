@@ -78,6 +78,8 @@ public class Food {
 	}
 	
 	
+	
+	
 	//ignore for now
 	@Override
 	public int hashCode() {
