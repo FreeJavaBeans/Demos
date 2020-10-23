@@ -10,7 +10,7 @@ public class MenuSelector {
 	//an array of all menus?
 	
 	//currentMenu
-	private Menu currentMenu;
+	private FoodMenu currentMenu;
 	//manage use input
 	private Scanner input;
 	
@@ -18,7 +18,7 @@ public class MenuSelector {
 	 * Show the current menu and prompt the use for an input
 	 */
 	public void display() {
-		System.out.println(currentMenu.getMenuDisplay());
+		System.out.println(currentMenu.display());
 		getUserInput();
 	}
 	
@@ -26,14 +26,14 @@ public class MenuSelector {
 	private void getUserInput() {
 		
 		System.out.println("Please choose a number between " 
-		                    + currentMenu.getChoices().get(0) 
+		                    + "1"
 		                    + "-" 
-		                    + currentMenu.getChoices().get(currentMenu.getChoices().size() - 1));
+		                    + (currentMenu.getMenu().size()));
 		
 		if(input.hasNextInt()) {
 			int choice = input.nextInt();
-			if(currentMenu.getChoices().contains(choice)) {
-				System.out.println("Your Choice was " + choice + " Thank you");
+			if(0< choice && choice <= currentMenu.getMenu().size()) {
+				currentMenu.chooseALine(choice-1);
 			}else {
 				System.out.println("Please input a valid Choice");
 			}
@@ -50,52 +50,39 @@ public class MenuSelector {
 		}
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public Menu getCurrentMenu() {
+	public MenuSelector() {
+		super();
+		currentMenu = new FoodMenu();
+		this.input = new Scanner(System.in);
+	}
+
+
+	public FoodMenu getCurrentMenu() {
 		return currentMenu;
 	}
-	public void setCurrentMenu(Menu currentMenu) {
+
+
+	public void setCurrentMenu(FoodMenu currentMenu) {
 		this.currentMenu = currentMenu;
 	}
+
+
 	public Scanner getInput() {
 		return input;
 	}
+
+
 	public void setInput(Scanner input) {
 		this.input = input;
 	}
-	public MenuSelector() {
-		super();
-		input = new Scanner(System.in);
-		String l1 = "1. See All Food\n";
-		String l2 = "2. Make An Order\n";
-		String l3 = "3. Pay your Bill\n";
-		String l4 = "4. Leave\n";
-		String display = l1 + l2 + l3 + l4;
-		List<Integer> choices = new ArrayList<Integer>();
-		choices.add(1);
-		choices.add(2);
-		choices.add(3);
-		choices.add(4);
-		currentMenu = new Menu(display, choices);
-	}
-	public MenuSelector(Menu currentMenu, Scanner input) {
-		super();
-		this.currentMenu = currentMenu;
-		this.input = input;
-	}
+
+
 	@Override
 	public String toString() {
 		return "MenuSelector [currentMenu=" + currentMenu + ", input=" + input + "]";
 	}
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -103,6 +90,8 @@ public class MenuSelector {
 		result = prime * result + ((currentMenu == null) ? 0 : currentMenu.hashCode());
 		return result;
 	}
+
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -119,6 +108,17 @@ public class MenuSelector {
 			return false;
 		return true;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

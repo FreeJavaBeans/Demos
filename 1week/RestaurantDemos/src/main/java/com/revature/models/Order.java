@@ -2,8 +2,6 @@ package com.revature.models;
 
 import java.util.List;
 
-import com.revature.oop.Eater;
-import com.revature.oop.Food;
 
 /**
  * @author Alec

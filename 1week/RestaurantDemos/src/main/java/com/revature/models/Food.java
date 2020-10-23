@@ -9,10 +9,6 @@ package com.revature.models;
  */
 public class Food {
 	
-	private static int numberOfFoodCreated = 0;//we can assign a default value to field when it gets created
-	
-	private static Food  []   allFoods = new Food[10];
-	
 	
 	//this is a field
 	private String name;
@@ -50,8 +46,7 @@ public class Food {
 	//a good reason not to have one is if our object requires another object for it to function
 	public Food() {
 		super();
-		allFoods[numberOfFoodCreated] = this;
-		numberOfFoodCreated++;
+		
 		
 	}
 	
@@ -72,8 +67,7 @@ public class Food {
 		this.type = type;
 		this.spiciness = spiciness;
 		
-		allFoods[numberOfFoodCreated] = this;
-		numberOfFoodCreated++;
+		
 		//customizing the object because this is the food constructor
 	}
 	
@@ -135,19 +129,7 @@ public class Food {
 	//beneath here lies your doom ( getters and setters )
 	
 
-	
 
-	public static int getNumberOfFoodCreated() {
-		return numberOfFoodCreated;
-	}
-
-	//leveraging encapsulation to control how my object/class can be used
-
-	public static Food[] getAllFoods() {
-		return allFoods;
-	}
-
-	//deleted setters for both static vars, I dont want others to change them
 
 	public String getName() {
 		return name;

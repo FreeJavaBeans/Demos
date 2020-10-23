@@ -7,10 +7,9 @@ public class LivingBeing implements Eater{
 	
 	private String name;
 
-	@Override
 	public void eat(Food f) {
-			this.hunger -= f.getCalories(); //-= is a special shorthand operator for x = x - y -> x -= y
-			System.out.println( "My name is " + this.name + " and I think that " + f.getName() + " was tasty!");
+		this.hunger -= f.getCalories(); //-= is a special shorthand operator for x = x - y -> x -= y
+		System.out.println( "My name is " + this.name + " and I think that " + f.getName() + " was tasty!");
 	}
 
 	public double getHunger() {
@@ -74,6 +73,8 @@ public class LivingBeing implements Eater{
 			return false;
 		return true;
 	}
+
+	
 	
 	 
 	
