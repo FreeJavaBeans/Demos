@@ -46,6 +46,7 @@ public class PRestaurantLauncher {
 		}catch(Exception e) {
 			System.out.println("Remember, more general excpetions go later in the catch block chain");
 		}finally {
+			//closing down resources that were created in the try block
 			System.out.println("Me oh MY I sure am hungry");
 		}
 		List<Food> choices = new ArrayList<>();
