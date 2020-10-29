@@ -3,6 +3,7 @@ package com.revature.repositories;
 import java.util.Set;
 
 import com.revature.exceptions.ClosedKitchenException;
+import com.revature.exceptions.FoodNotFoundException;
 import com.revature.models.Food;
 
 public interface RestaurantMenuRepository {
@@ -33,7 +34,7 @@ public interface RestaurantMenuRepository {
 	public Food randomOrder();
 	
 	
-	public Food getFoodById(int id);
+	public Food getFoodById(int id) throws FoodNotFoundException;
 	
 	public Food saveOneFood(Food f);
 	
