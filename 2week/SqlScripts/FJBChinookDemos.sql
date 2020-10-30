@@ -78,10 +78,34 @@ and t2."TrackId" not in
 		(select "AlbumId" from "Album" a2 where a2."ArtistId" in
 			(select "ArtistId" from "Artist" as a where a."Name" like 'AC/DC')));
 
+		
+
+select distinct("PlaylistId") from "PlaylistTrack" pt inner join 
+	(select "TrackId" from "Track" t where t."AlbumId" in
+		(select "AlbumId" from "Album" a2 where a2."ArtistId" in
+			(select "ArtistId" from "Artist" as a where a."Name" like 'AC/DC'))) as sq on pt."TrackId" = sq."TrackId";
+
+
+select c."CustomerId", c."FirstName", c."LastName" , sum(i."Total") as "SumTotal" from "Customer" c inner join "Invoice" i on i."CustomerId" =c."CustomerId" group by c."CustomerId" order by "SumTotal" desc;
+
+
+--who doesn;t have an employee? -right
+--who doesn;t have a boss? - left
+
+select e."FirstName", e."LastName", e."ReportsTo" , e2."FirstName" , e2."LastName" from "Employee" e right join "Employee" e2 on e."ReportsTo" = e2."EmployeeId"; 
+
+select * from "Track" t inner join "Genre" g2 on t."GenreId" = g2."GenreId";
 
 
 
+select c."FirstName", c."LastName", c."Address" from "Customer" c intersect (select e2."FirstName", e2."LastName", e2."Address" from "Employee" e2) 
 
+select "Name" from "Artist" a intersect (select "Title" from "Album" a2);
 
-
-	
+create view acdc_songs as 
+	(select * from "Track" t where t."AlbumId" in
+		(select "AlbumId" from "Album" a2 where a2."ArtistId" in
+			(select "ArtistId" from "Artist" as a where a."Name" like 'AC/DC')));
+			
+		
+		select * from acdc_songs; 

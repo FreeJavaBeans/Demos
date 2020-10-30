@@ -17,6 +17,10 @@ create table Food(
 insert into food ("name", culture, spiciness, calories, "type")
 			values('IceCream', 'Chinese', 0, 450, 'Dessert'),
 				  ('Curry', 'Indian', 8, 600, 'Entree');
+				 
+insert into food ("name", culture, spiciness, calories, "type")
+			values('Smores', 'Campfire Industry', 2, 300, 'Dessert'),
+				  ('Meatloaf', 'Mom\''s', 1, 800, 'Entree') returning food.food_id;
 begin;
 select * from food;
 commit;
@@ -90,4 +94,9 @@ update users set "name" ='Ben', username = 'BP' where user_id = 1;
 
 
 select * from users u ;
+
+
+
+
+insert into food ("name", culture, spiciness, calories, "type" ) values ('', 'Italian', 2, 350.0, 'Entree') returning food.food_id;
 
