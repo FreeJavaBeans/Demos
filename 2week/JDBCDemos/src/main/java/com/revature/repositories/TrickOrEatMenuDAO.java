@@ -150,7 +150,7 @@ public class TrickOrEatMenuDAO implements RestaurantMenuRepository {
 			prepStatement.setInt(3, f.getSpiciness());
 			prepStatement.setDouble(4, f.getCalories());
 			prepStatement.setString(5, f.getType());
-			
+			System.out.println();
 			
 			//execute query
 			ResultSet results = prepStatement.executeQuery();
