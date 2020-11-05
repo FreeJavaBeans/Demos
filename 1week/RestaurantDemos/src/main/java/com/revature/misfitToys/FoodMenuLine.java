@@ -1,4 +1,4 @@
-package com.revature.menus;
+package com.revature.misfitToys;
 
 import com.revature.models.Food;
 import com.revature.models.Order;
@@ -24,8 +24,8 @@ public class FoodMenuLine {
 	public void doAction() {
 		//what happens when you choose a food from the menu
 		//probably we add it to your order
-		Order o = ros.addFoodToOrder(food);
-		System.out.println("your order is : " + o);
+		//Order o = ros.addFoodToOrder(food);
+		//System.out.println("your order is : " + o);
 	}
 
 	public int getLineNumber() {

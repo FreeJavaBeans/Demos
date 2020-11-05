@@ -1,19 +1,29 @@
 package com.revature;
 
-import com.revature.menus.MenuSelector;
-import com.revature.models.Eater;
-import com.revature.models.LivingBeing;
+
+import java.io.IOException;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import com.revature.menus.Menu;
+
 
 public class RestaurantLauncher {
 	
-	public static Eater currentEater = new LivingBeing(2000, "Alec");
+	public static Logger logger = LogManager.getLogger("com.revature.trickoreat");
 	
-	public static void main(String[] args) {
-		MenuSelector ms = new MenuSelector();
+	public static void main(String[] args) throws IOException {
+		Menu m = new Menu();		
+
 		while(true) {
-			ms.display();
-			//login logout functionality
+			
+			System.out.println(m.display());
+			m.handleInput();
+
 		}
 	}
 
+		
+	
 }
