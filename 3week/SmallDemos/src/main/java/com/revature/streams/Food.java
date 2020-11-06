@@ -1,6 +1,4 @@
-package com.revature.models;
-
-import com.revature.menus.Displayable;
+package com.revature.streams;
 
 //this class is going to be about food related data
 //and food related behaviours
@@ -9,7 +7,7 @@ import com.revature.menus.Displayable;
  * @author Alec
  *
  */
-public class Food  implements Displayable{
+public class Food {
 	
 	
 	//this is a field
@@ -173,12 +171,6 @@ public class Food  implements Displayable{
 	public void setSpiciness(int spiciness) {
 		//maybe check spiciness to be positive
 		this.spiciness = spiciness;
-	}
-
-	@Override
-	public String display() {
-		// TODO Auto-generated method stub
-		return this.getName() + " - " + "This Food comes from " + this.getCulture();
 	}
 	
 	
