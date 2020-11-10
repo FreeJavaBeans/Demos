@@ -7,7 +7,7 @@ package com.revature.streams;
  * @author Alec
  *
  */
-public class Food {
+public class Food implements Comparable<Food>{
 	
 	
 	//this is a field
@@ -171,6 +171,23 @@ public class Food {
 	public void setSpiciness(int spiciness) {
 		//maybe check spiciness to be positive
 		this.spiciness = spiciness;
+	}
+
+	//we can compare two foods
+	public int compareTo(Food o) {//any collection that depends on sorted elements like tree map and tree set generally requires you implementing comparable
+		if(this.type.compareTo(o.type) < 0) {
+			return -1;
+		} else if (this.type.compareTo(o.type) > 0) {
+			return 1;
+		}else {
+			if(this.name.compareTo(o.name) < 0 ) {
+				return -1;
+			} else if (this.name.compareTo(o.name) > 0 ) {
+				return 1;
+			}else {
+				return 0;
+			}
+		}
 	}
 	
 	
